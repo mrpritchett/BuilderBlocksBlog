@@ -13,7 +13,7 @@
 	display: flex;
 }
 
-.row {
+.fd-r {
 	flex-direction: row;
 }
 
@@ -23,4 +23,12 @@
 
 .ai-c {
 	align-items: center;
+}
+
+.fd-c {
+	flex-direction: column;
+}
+
+.ta-c {
+	text-align: center;
 }
