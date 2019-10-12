@@ -1,0 +1,50 @@
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Builder_Blocks_Blog
+ */
+
+get_header();
+?>
+
+	<div id="primary" class="content-area wrapper">
+		<main id="main" class="site-main">
+
+		<?php if ( have_posts() ) : ?>
+
+			<header class="page-header">
+				<span class="subtitle"><?php esc_html_e( 'Posts in', 'builder-blocks-blog' ); ?></span>
+				<h2><?php single_term_title(); ?></h2>
+			</header><!-- .page-header -->
+
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
+
+				/*
+				 * Include the Post-Type-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', 'archive' );
+
+			endwhile;
+
+			builder_blocks_blog_numeric_posts_nav();
+
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
+		endif;
+		?>
+
+		</main><!-- #main -->
+		<?php get_sidebar(); ?>
+	</div><!-- #primary -->
+
+<?php get_footer(); ?>
