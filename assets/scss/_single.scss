@@ -81,7 +81,11 @@
 		p,
 		ul,
 		ol,
-		code {
+		code,
+		dl,
+		address,
+		a,
+		abbr {
 			max-width: 56rem;
 		}
 
@@ -90,7 +94,8 @@
 		audio,
 		iframe,
 		figure,
-		.gallery {
+		.gallery,
+		table {
 			max-width: 120rem;
 		}
 
