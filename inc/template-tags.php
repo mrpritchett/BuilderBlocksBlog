@@ -26,7 +26,7 @@ if ( ! function_exists( 'builder_blocks_blog_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'builder-blocks-blog' ),
+			esc_html_x( '%s', 'post date', 'builder-blocks-blog' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -42,7 +42,7 @@ if ( ! function_exists( 'builder_blocks_blog_posted_by' ) ) :
 	function builder_blocks_blog_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'builder-blocks-blog' ),
+			esc_html_x( '%s', 'post author', 'builder-blocks-blog' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
