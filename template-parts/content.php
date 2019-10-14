@@ -10,50 +10,41 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+	<header class="entry-header" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>)">
+		<div class="entry-header-color">
+			<div class="entry-title-wrapper">
+				<?php
+					/* translators: used between list items, there is a space after the comma */
+					$categories_list = get_the_category_list( esc_html__( ' ', 'builder-blocks-blog' ) );
+					if ( $categories_list ) {
+						/* translators: 1: list of categories. */
+						printf( '<span class="cat-links">' . esc_html__( '%1$s', 'builder-blocks-blog' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+					}
+				?>
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+			</div>
 
-		if ( 'post' === get_post_type() ) :
-			?>
 			<div class="entry-meta">
 				<?php
-				builder_blocks_blog_posted_on();
-				builder_blocks_blog_posted_by();
+					builder_blocks_blog_posted_on();
+					builder_blocks_blog_posted_by();
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php builder_blocks_blog_post_thumbnail(); ?>
+			</div>
+		</div>
+	</header>
 
 	<div class="entry-content">
 		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'builder-blocks-blog' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+			the_content();
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'builder-blocks-blog' ),
-			'after'  => '</div>',
-		) );
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'builder-blocks-blog' ),
+				'after'  => '</div>',
+			) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer">
 		<?php builder_blocks_blog_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

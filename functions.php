@@ -159,4 +159,23 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Adds class for posts containing
+ * feature image to the body element.
+ *
+ * @param Array $classes the array of body classes.
+ *
+ * @return Array $classes the updated array of body classes.
+ */
+function builder_blocks_blog_custom_body_classes( $classes ) {
+	global $post;
+
+    if ( is_single() && has_post_thumbnail( $post ) ) {
+        $classes[] = 'has-post-thumbnail';
+	}
+
+    return $classes;
+}
+add_filter( 'body_class', 'builder_blocks_blog_custom_body_classes' );
+
 require_once __DIR__ . '/inc/load.php';
