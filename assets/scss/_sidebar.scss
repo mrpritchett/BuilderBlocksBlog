@@ -1,0 +1,34 @@
+.widget_search {
+	.search-form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	input[type="search"] {
+		font-size: 1.4rem;
+		width: 100%;
+	}
+
+	input[type="submit"] {
+		-webkit-appearance: none;
+		background: none;
+		border: 2px solid #000;
+		border-radius: 0;
+		box-shadow: none;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 1.2rem;
+		line-height: 0;
+		margin-top: 2.4rem;
+		padding: 2.4rem 0;
+		text-transform: uppercase;
+		transition: all 0.2s ease-out;
+		width: 20rem;
+
+		&:hover {
+			background: #000;
+			color: #FFF;
+			transition: all 0.2s ease-out;
+		}
+	}
+}
