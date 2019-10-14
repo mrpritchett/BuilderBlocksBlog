@@ -1,87 +1,82 @@
 .single {
 	.entry-header {
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		height: 600px;
-	}
+		margin: 6.4rem 0;
 
-	.entry-header-color {
-		align-items: center;
-		background-color: rgba(0,0,0,.4);
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		justify-content: flex-end;
-		width: 100%;
-	}
+		.entry-header-color {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			width: 100%;
+		}
 
-	.entry-title-wrapper {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		margin: auto 0;
-	}
+		.entry-title-wrapper {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin: auto 0;
+			text-align: center;
+		}
 
-	.cat-links {
-		display: flex;
-		flex-direction: row;
-		list-style: none;
-		margin: 0;
-		padding: 0;
+		.cat-links {
+			display: flex;
+			flex-direction: row;
+			list-style: none;
+			margin: 0;
+			padding: 0;
 
-		a {
-			border: 2px solid #FFF;
-			color: #FFF;
-			display: inline-block;
-			font-size: 1.0rem;
-			letter-spacing: 1px;
-			line-height: 1;
-			margin-right: 0.8rem;
-			padding: 4px 6px;
-			text-decoration: none;;
-			text-transform: uppercase;
-			transition: all 0.2s ease-out;
-
-			&:hover {
-				background-color: #222;
-				color: #fff;
+			a {
+				border: 2px solid;
+				border-color: #000;
+				color: #000;
+				display: inline-block;
+				font-size: 1.0rem;
+				letter-spacing: 1px;
+				line-height: 1;
+				margin-right: 0.8rem;
+				padding: 4px 6px;
+				text-decoration: none;;
+				text-transform: uppercase;
 				transition: all 0.2s ease-out;
+
+				&:hover {
+					background-color: #222;
+					color: #fff;
+					transition: all 0.2s ease-out;
+				}
+			}
+		}
+
+		.entry-title {
+			color: #000;
+			line-height: 1.15;
+			max-width: 56rem;
+			word-wrap: break-word;
+		}
+
+		.entry-meta {
+			color: #000;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.posted-on,
+		.byline {
+			a {
+				color: #000;
+				font-size: 1.4rem;
+				padding: 0 1.6rem;
+				text-transform: uppercase;
 			}
 		}
 	}
 
-	.entry-title {
-		color: #FFF;
-		line-height: 1.15;
-		max-width: 56rem;
-		word-wrap: break-word;
-	}
-
-	.entry-meta {
-		align-self: flex-end;
-		color: #FFF;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 2.4rem;
-		width: 100%;
-	}
-
-	.posted-on,
-	.byline {
-
-		a {
-			color: #fff;
-			font-size: 1.4rem;
-			text-transform: uppercase;
-		}
-	}
-
 	.entry-content {
+		align-items: center;
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
 
 		p,
 		ul,
@@ -89,20 +84,101 @@
 		code {
 			max-width: 56rem;
 		}
+
+		img,
+		video,
+		audio,
+		iframe,
+		figure,
+		.gallery {
+			max-width: 120rem;
+		}
+
+		.gallery {
+			display: grid;
+
+			img {
+				max-width: 100%;
+			}
+		}
+
+		.gallery-columns-1 {
+			grid-gap: 1.6rem;
+			grid-template-columns: 1fr;
+		}
+
+		.gallery-columns-2 {
+			grid-gap: 1.6rem;
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.gallery-columns-3 {
+			grid-gap: 1.6rem;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		.gallery-columns-4 {
+			grid-gap: 1.6rem;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+
+		.gallery-columns-5 {
+			grid-gap: 1.6rem;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		}
+
+		.gallery-columns-6 {
+			grid-gap: 1.6rem;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+		}
 	}
 
-	.tags-links {
-		color: #999;
-
-		a {
-			display: inline-block;
-			font-size: 1rem;
-			letter-spacing: 2px;
+	.entry-footer {
+		.tags-links {
 			color: #999;
-			font-style: normal;
-			margin-bottom: .6em;
-			text-transform: uppercase;
-			font-weight: 600;
+
+			a {
+				display: inline-block;
+				font-size: 1rem;
+				letter-spacing: 2px;
+				color: #999;
+				font-style: normal;
+				margin-bottom: .6em;
+				text-transform: uppercase;
+				font-weight: 600;
+			}
+		}
+	}
+
+	&.has-post-thumbnail {
+		.entry-header {
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 600px;
+			margin: 0;
+		}
+
+		.entry-header-color {
+			background-color: rgba(0,0,0,.4);
+			height: 100%;
+		}
+
+		.cat-links a {
+			border-color: #fff;
+			color: #FFF;
+		}
+
+		.entry-title,
+		.posted-on a,
+		.byline a {
+			color: #FFF;
+		}
+
+		.entry-meta {
+			color: #FFF;
+			padding: 2.4rem;
+			width: 100%;
 		}
 	}
 }
